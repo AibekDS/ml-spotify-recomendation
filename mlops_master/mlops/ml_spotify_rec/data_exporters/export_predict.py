@@ -1,19 +1,12 @@
-if 'data_exporter' not in globals():
-    from mage_ai.data_preparation.decorators import data_exporter
+import pandas as pd
+import numpy as np
 
 
 @data_exporter
-def export_data(data, *args, **kwargs):
-    """
-    Exports data to some source.
+def export_data(y_pred, *args, **kwargs):
+    y_pred_df = pd.DataFrame(y_pred)
 
-    Args:
-        data: The output from the upstream parent block
-        args: The output from any additional upstream blocks (if applicable)
-
-    Output (optional):
-        Optionally return any object and it'll be logged and
-        displayed when inspecting the block run.
-    """
-    # Specify your data exporting logic here
+    # Save DataFrame as a CSV file
+    csv_file_path = 'answer.csv'
+    y_pred_df.to_csv(csv_file_path, index=False)
 

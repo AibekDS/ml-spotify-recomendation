@@ -25,6 +25,18 @@ services:
       - magic-database
     stdin_open: true # used for interactive debugging
     tty: true # used for interactive debugging
+  mlflow:
+    build:
+      context: .
+      dockerfile: mlflow.dockerfile
+    ports:
+      - 5000:5000  # Expose MLflow UI port
+    volumes:
+      - /mlflow_data:/home/mlflow_data/  # Mount MLflow data directory
+    environment:
+      - MLFLOW_TRACKING_URI=/home/mlflow_data/mlruns  # Specify MLruns location
+    networks:
+      - app-network
   magic-database:
     image: pgvector/pgvector:0.6.0-pg16
     env_file:
