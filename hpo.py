@@ -110,5 +110,5 @@ def run_hyperopt(data_path: str):
         mlflow.log_metric("final_accuracy_score_test", accuracy)
 
 if __name__ == "__main__":
-    mlflow.set_tracking_uri("sqlite:///mlflow.db")
+    mlflow.set_tracking_uri("http://localhost:5000/")
     run_hyperopt()

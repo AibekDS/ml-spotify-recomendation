@@ -32,9 +32,11 @@ services:
     ports:
       - 5000:5000  # Expose MLflow UI port
     volumes:
-      - /mlflow_data:/home/mlflow_data/  # Mount MLflow data directory
+      - /mlflow_data:/home/ml-100-sport
     environment:
-      - MLFLOW_TRACKING_URI=/home/mlflow_data/mlruns  # Specify MLruns location
+      - MLFLOW_TRACKING_URI=http://127.0.0.1:5000  # Specify MLruns location
+      - MLFLOW_BACKEND_STORE_URI=postgresql://home/ml-100-sport:mlflow@db:5432/mlflow
+      - MLFLOW_ARTIFACT_ROOT=/home/ml-100-sport/artifacts
     networks:
       - app-network
   magic-database:

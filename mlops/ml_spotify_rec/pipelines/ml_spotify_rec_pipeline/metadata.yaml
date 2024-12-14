@@ -41,38 +41,19 @@ blocks:
   configuration:
     file_source:
       path: ml_spotify_rec/transformers/predict.py
-  downstream_blocks:
-  - export_predict
+  downstream_blocks: []
   executor_config: null
   executor_type: local_python
   has_callback: false
   language: python
   name: Predict
   retry_config: null
-  status: executed
+  status: updated
   timeout: null
   type: transformer
   upstream_blocks:
   - preprocess
   uuid: predict
-- all_upstream_blocks_executed: true
-  color: null
-  configuration:
-    file_source:
-      path: ml_spotify_rec/data_exporters/export_predict.py
-  downstream_blocks: []
-  executor_config: null
-  executor_type: local_python
-  has_callback: false
-  language: python
-  name: Export predict
-  retry_config: null
-  status: failed
-  timeout: null
-  type: data_exporter
-  upstream_blocks:
-  - predict
-  uuid: export_predict
 cache_block_output_in_memory: false
 callbacks: []
 concurrency_config: {}

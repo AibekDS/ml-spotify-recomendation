@@ -33,5 +33,5 @@ def transform(X, *args, **kwargs):
         mlflow.xgboost.autolog()
         y_pred_proba = model_xgb.predict_proba(X)
         y_pred = (y_pred_proba[:, 1] >= threshold).astype(int)
-    # print(y_pred)
+    print(y_pred)
     return y_pred

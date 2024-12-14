@@ -16,7 +16,7 @@ EXPOSE 5000
 
 CMD [ \
    "mlflow", "server", \
-   "--backend-store-uri", "sqlite:///home/ml-spotify-recomendation/mlflow.db", \
+   "--backend-store-uri", "sqlite:///mlflow.db", \
    "--host", "0.0.0.0", \
    "--port", "5000" \
 ]

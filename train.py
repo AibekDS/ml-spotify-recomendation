@@ -53,6 +53,6 @@ def run_train(data_path: str):
         mlflow.log_metric("accuracy_score_test", acc_score_test)
 
 if __name__ == "__main__":
-    mlflow.set_tracking_uri("sqlite:///mlflow.db")
+    mlflow.set_tracking_uri("http://localhost:5000/") # or sqlite:///mlflow.db
     mlflow.set_experiment("spotify-tracks-rec")
     run_train()
